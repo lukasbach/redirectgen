@@ -42,8 +42,8 @@ jobs:
           always-auth: true
           node-version: 12.x
           registry-url: https://registry.npmjs.org/
-      - name: Yarn Package Publish
-        uses: luvies/action-yarn-publish@v0.1.1
-        with:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          echo "NPM_TOKEN is $NPM_TOKEN"
+          yarn npm publish
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
