@@ -1,0 +1,9 @@
+links:
+  example:
+    url: https://lukasbach.com
+  with-count-api:
+    url: https://lukasbach.com
+    countapi: adfsafdsafd
+  my/deeply/nested/link:
+    url: https://lukasbach.com
+    countapi: adfsafdsafd

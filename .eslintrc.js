@@ -7,7 +7,6 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
-    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "airbnb",
@@ -24,12 +23,14 @@ module.exports = {
     },
     project: './tsconfig.json'
   },
-  plugins: ["react", "@typescript-eslint", "prettier"],
+  plugins: ["@typescript-eslint", "prettier"],
   rules: {
     "import/prefer-default-export": "off",
     "no-console": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "no-await-in-loop": "off",
+    "no-restricted-syntax": "off"
   },
   ignorePatterns: ["lib", "*.js"],
 };

@@ -1,13 +1,13 @@
 {
-  "name": "TODO-package-name",
+  "name": "redirectgen",
   "version": "0.0.1",
-  "description": "TODO",
-  "bin": "TODO lib/cjs/index.js",
+  "description": "CLI tool for generating static URL shortener HTML documents from a yaml data source",
+  "bin": "lib/cjs/index.js",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "esnext": "lib/esnext/index.js",
   "typings": "lib/esm/index.d.ts",
-  "repository": "https://github.com/lukasbach/{NAME}",
+  "repository": "https://github.com/lukasbach/redirectgen",
   "author": "Lukas Bach <npm@lukasbach.com>",
   "license": "MIT",
   "files": [
@@ -15,7 +15,8 @@
     "!lib/**/*.spec.js"
   ],
   "scripts": {
-    "start": "tsc -w --outDir lib/cjs",
+    "start": "esr src/index.ts -o ./output -c ./demo.yaml",
+    "helppage": "esr src/index.ts --help",
     "build": "run-s \"build:*\"",
     "build:cjs": "tsc --outDir lib/cjs",
     "build:esm": "tsc -m es2015 --outDir lib/esm",
@@ -31,6 +32,8 @@
     "@types/node": "^18.8.5",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
+    "esbuild": "^0.17.5",
+    "esbuild-runner": "^2.2.2",
     "eslint": "^8.25.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -46,5 +49,16 @@
     "rimraf": "^3.0.2",
     "typescript": "^4.8.4"
   },
-  "packageManager": "yarn@3.2.4"
+  "packageManager": "yarn@3.2.4",
+  "volta": {
+    "node": "18.14.0",
+    "yarn": "3.4.1"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "commander": "^10.0.0",
+    "fs-extra": "^11.1.0",
+    "noindent": "^1.0.0",
+    "yaml": "^2.2.1"
+  }
 }
