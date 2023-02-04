@@ -17,8 +17,13 @@ interface Config {
   }[];
 }
 
+const packageJson = path.join(__dirname, "../../package.json");
+const version = fs.existsSync(packageJson)
+  ? JSON.parse(fs.readFileSync(packageJson, { encoding: "utf-8" })).version
+  : "";
+
 program
-  .version(JSON.parse(fs.readFileSync(path.join(__dirname, "../package.json"), { encoding: "utf-8" })).version)
+  .version(version)
   .requiredOption("-o, --output <path>", "path to output")
   .requiredOption("-c, --config <path>", "path to config yaml file");
 
