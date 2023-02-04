@@ -42,6 +42,8 @@ jobs:
           always-auth: true
           node-version: 12.x
           registry-url: https://registry.npmjs.org/
-      - run: yarn npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: |
+          npm set _authToken=${{secrets.NPM_TOKEN}}
+          npm set always-auth true
+          npm set email npm@lukasbach.com
+          yarn npm publish
