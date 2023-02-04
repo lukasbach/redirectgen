@@ -16,8 +16,6 @@ or directly use via
 
     npx redirectgen
 
-You can also [download a prebuilt binary](https://github.com/lukasbach/redirectgen/releases) and run that.
-
 You need a yaml configuration file that contains your links:
 
 ```yaml
